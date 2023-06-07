@@ -1,0 +1,43 @@
+page-my-class-list {
+    .my-class-list {
+        .class-item {
+            padding: 10px 15px;
+
+            .title {
+                font-size: 20px;
+                color: #4c4c4c;
+            }
+
+            .details {
+                font-size: 15px;
+                color: #999;
+
+                ul {
+                    li, & {
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    li {
+                        list-style: none;
+                        line-height: 25px;
+
+                        &.multiple {
+                            li {
+                                padding-left: 75px;
+                            }
+                        }
+
+                        span {
+                            color: red;
+                        }
+                    }
+                }
+            }
+
+            &:nth-child(2n) {
+                background-color: #f2f2f2;
+            }
+        }
+    }
+}

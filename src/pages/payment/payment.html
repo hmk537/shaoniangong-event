@@ -1,0 +1,88 @@
+<!--
+  Generated template for the PaymentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>支付</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="payment">
+    <div class="confirm" *ngIf="paymentInfo">
+      <div class="title">确认信息</div>
+      <div class="info">
+        <ul>
+          <li>
+            <div class="field-name"><span>预约号：</span></div>
+            <div class="field-value"><span>{{paymentInfo.reserveNo}}</span></div>
+          </li>
+          <li>
+            <div class="field-name"><span>过期时间：</span></div>
+            <div class="field-value"><span>{{dateFormat(paymentInfo.deadLine, 'YYYY-MM-DD HH:mm')}}</span></div>
+          </li>
+          <li>
+            <div class="field-name">区&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;域：</div>
+            <div class="field-value">{{paymentInfo.area}}</div>
+          </li>
+          <li>
+            <div class="field-name">班级代码：</div>
+            <div class="field-value">{{paymentInfo.classCode}}</div>
+          </li>
+          <!-- <li>
+            <div class="field-name">区域</div>
+            <div class="field-value"></div>
+          </li> -->
+          <li>
+            <div class="field-name">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年：</div>
+            <div class="field-value">{{paymentInfo.year}}</div>
+          </li>
+          <li>
+            <div class="field-name">学&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;期：</div>
+            <div class="field-value">{{paymentInfo.term}}</div>
+          </li>
+          <li>
+            <div class="field-name">专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：</div>
+            <div class="field-value">{{paymentInfo.major}}</div>
+          </li>
+          <li>
+            <div class="field-name">班&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级：</div>
+            <div class="field-value">{{paymentInfo.class}}</div>
+          </li>
+          <li>
+            <div class="field-name">专业程度</div>
+            <div class="field-value">{{paymentInfo.majorDegree}}</div>
+          </li>
+          <li>
+            <div class="field-name">费&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用：</div>
+            <div class="field-value">{{paymentInfo.totalFee}}</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="submit-button-container" *ngIf="paymentInfo && paymentInfo.enrollType != 1 && paymentInfo.enrollType != 2">
+      <div *ngIf="!paymentTriggered;else payment_triggered">
+        <!-- <button (click)="pay('wechat')" *ngIf="wechatpayEnable">
+          微信支付
+        </button><br><br> -->
+        <button (click)="pay('alipay')" *ngIf="alipayEnable && paymentInfo.orgId!='FEAB1A0CA40E4390E0430100007FAD58'">
+          支付宝支付
+        </button>
+        <button (click)="goPayCode()" *ngIf="alipayEnable && paymentInfo.orgId=='FEAB1A0CA40E4390E0430100007FAD58'">
+          支付宝支付
+        </button>
+      </div>
+      <ng-template #payment_triggered>
+        <button (click)="checkPayment()">
+          支付完成
+        </button>
+      </ng-template>
+    </div>
+  </div>
+</ion-content>

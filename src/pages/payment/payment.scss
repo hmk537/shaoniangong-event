@@ -1,0 +1,46 @@
+page-payment {
+    .payment {
+        .confirm {
+            padding: 0 15px;
+
+            .title {
+                font-size: 20px;
+                font-weight: bold;
+                height: 50px;
+                line-height: 50px;
+                border-bottom: 1px solid #aaa;
+            }
+
+            .info {
+                padding-top: 10px;
+
+                ul {
+
+                    &,
+                    li {
+                        padding: 0;
+                        margin: 0;
+                    }
+
+                    li {
+                        list-style: none;
+                        display: flex;
+                        font-size: 16px;
+                        height: 30px;
+                        line-height: 30px;
+
+                        .field-name {
+                            width: 90px;
+                        }
+
+                        .field-value {
+                            span {
+                                color: red;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

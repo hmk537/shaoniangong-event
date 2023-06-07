@@ -1,0 +1,65 @@
+<!--
+  Generated template for the SigninListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>我的点到</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="filter-container" ion-fixed top>
+    <div class="filter">
+      <div class="conditions">
+        <div class="select-filter">
+          <div class="custom-select">
+            <div class="display">
+              <div class="filter-name">{{typeName}}</div>
+              <ion-icon name="ios-arrow-down"></ion-icon>
+            </div>
+            <ion-select [(ngModel)]="type" (ionChange)="changeType()" okText="确定" cancelText="取消">
+              <ion-option value="1">今日点到</ion-option>
+              <ion-option value="2">点到统计</ion-option>
+            </ion-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="class-list" [hidden]="type != 1">
+    <div class="class-item" *ngFor="let item of list1">
+      <div class="title">
+        {{item.className}}
+      </div>
+      <div class="details">
+        <ul>
+          <li>状态：{{item.caption.signStatus}}</li>
+          <li>到课时间：{{dateFormat(item.startTime)}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="class-list" [hidden]="type != 2">
+    <div class="class-item" *ngFor="let item of list2">
+      <div class="title">
+        {{item.bean.className}}
+      </div>
+      <div class="details">
+        <ul>
+          <li>上课时间：{{dateFormat(item.bean.startTime)}}</li>
+          <li>到课情况：{{item.bean.caption.signStatus}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)" *ngIf="type == 2">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="正在加载更多...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

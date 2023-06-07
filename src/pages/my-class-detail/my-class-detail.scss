@@ -1,0 +1,19 @@
+page-my-class-detail {
+    .my-class-detail {
+        .details {
+            ion-row.multi-row {
+                height: auto;
+            }
+        }
+        .submit-button-container {
+            button.disabled {
+                background-color: #ccc;
+            }
+        }
+    }
+    ion-col {
+        span {
+            color: red;
+        }
+    }
+}

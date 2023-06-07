@@ -1,0 +1,31 @@
+page-class-detail {
+    .class-detail {
+        .details {
+            ion-row.multi-row {
+                height: auto;
+            }
+        }
+        .submit-button-container {
+            button.disabled {
+                background-color: #ccc;
+            }
+        }
+        ion-row {
+            &.highlight ion-col {
+                color: red;
+            }
+        }
+        .contract {
+            padding: 5px 20px;
+            display: flex;
+            align-items: center;
+            ion-icon {
+                color: #333;
+            }
+            span {
+                color: #05a2e9;
+                text-decoration: underline;
+            }
+        }
+    }
+}

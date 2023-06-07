@@ -1,0 +1,113 @@
+<!--
+  Generated template for the ApplyPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>培训列表</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goSetting()">
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="filter-container" ion-fixed top>
+    <div class="filter" *ngIf="initialized">
+      <!-- <div class="keywords-search">
+        <ion-icon name="search"></ion-icon>
+        <input type="text" placeholder="请输入查找的课程名称或代码" (keyup.enter)="resetQuery()">
+      </div> -->
+      <div class="conditions">
+        <div class="select-filter">
+          <div class="custom-select">
+            <div class="display">
+              <div class="filter-name">{{areaName}}</div>
+              <ion-icon name="ios-arrow-down"></ion-icon>
+            </div>
+            <ion-select [(ngModel)]="query.area" (ionChange)="resetQuery(0)" okText="确定" cancelText="取消">
+              <ion-option *ngFor="let item of areaList" value="{{item.value}}">{{item.label}}</ion-option>
+            </ion-select>
+          </div>
+        </div>
+        <div class="select-filter">
+          <div class="custom-select">
+            <div class="display">
+              <div class="filter-name">{{yearName}}</div>
+              <ion-icon name="ios-arrow-down"></ion-icon>
+            </div>
+            <ion-select [(ngModel)]="query.year" (ionChange)="resetQuery(1)" okText="确定" cancelText="取消">
+              <ion-option *ngFor="let item of yearList" value="{{item.value}}">{{item.label}}</ion-option>
+            </ion-select>
+          </div>
+        </div>
+        <div class="select-filter">
+          <div class="custom-select">
+            <div class="display">
+              <div class="filter-name">{{termName}}</div>
+              <ion-icon name="ios-arrow-down"></ion-icon>
+            </div>
+            <ion-select [(ngModel)]="query.term" (ionChange)="resetQuery(2)" okText="确定" cancelText="取消">
+              <ion-option *ngFor="let item of termList" value="{{item.value}}">{{item.label}}</ion-option>
+            </ion-select>
+          </div>
+        </div>
+        <div class="select-filter modal-selector" (click)="majorSelect()">
+          <div class="filter-name">{{majorName}}</div>
+          <ion-icon name="ios-arrow-down"></ion-icon>
+        </div>
+        <!-- <div class="select-filter">时间段&nbsp;&nbsp;&nbsp;<ion-icon name="ios-arrow-down"></ion-icon>
+          </div> -->
+        <div class="select-filter">
+          <div class="custom-select">
+            <div class="display">
+              <div class="filter-name">{{timeName}}</div>
+              <ion-icon name="ios-arrow-down"></ion-icon>
+            </div>
+            <ion-select [(ngModel)]="query.weekDay" (ionChange)="resetQuery(4)" okText="确定" cancelText="取消">
+              <ion-option *ngFor="let item of timeList" value="{{item.value}}">{{item.label}}</ion-option>
+            </ion-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="class-list">
+    <div class="class-item" (click)="goDetail(item.bean.id)" *ngFor="let item of list">
+      <div class="title" [innerHTML]="item.bean.name + '（费用：' + item.bean.totalFee + '）'"></div>
+      <div class="details">
+        <ul>
+          <li><span class="highlight">状态：{{getStatus(item)}}</span></li>
+          <li><span class="highlight">区域：{{item.bean.caption.area}}</span></li>
+          <li>专业：{{item.bean.spelName}}</li>
+          <li>程度：{{item.bean.caption.degree}}</li>
+          <li>课次：{{item.bean.classTime}}</li>
+          <li>开课时间：{{dateFormat(item.bean.beginDate)}}</li>
+          <li>报名年龄：<span [innerHTML]="getLimitation(item) | safeHtml"></span></li>
+          <li>课表信息：<span [innerHTML]="item.bean.schedule | safeHtml"></span></li>
+          <!-- <li class="multiple">
+              上课时间/地点：
+              <div>
+                <ul>
+                  <li>周一 18:30-19:30 4楼器乐1室</li>
+                  <li>周一 18:30-19:30 4楼器乐1室</li>
+                  <li>周一 18:30-19:30 4楼器乐1室</li>
+                </ul>
+              </div>
+            </li>
+            <li>班级状态：状态状态状态状态状态状态状态状态状态状态</li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="正在加载更多...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

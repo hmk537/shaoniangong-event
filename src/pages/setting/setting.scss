@@ -1,0 +1,31 @@
+page-setting {
+    .menus {
+        .menu {
+            height: 40px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            padding: 0 30px;
+            border-bottom: 1px solid #e6e6e6;
+            position: relative;
+            ion-icon {
+                margin-right: 10px;
+                font-size: 24px;
+                color: #05a2e9;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                &[name='ios-arrow-forward'] {
+                    position: absolute;
+                    right: 0;
+                    color: #b3b3b3;
+                    font-weight: lighter;
+                }
+            }
+            span {
+                color: #999;
+                margin-left: 30px;
+            }
+        }
+    }
+}

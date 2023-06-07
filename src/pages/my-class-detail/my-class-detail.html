@@ -1,0 +1,112 @@
+<!--
+  Generated template for the MyClassDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngIf="applyInfo">{{applyInfo.iclass.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="my-class-detail" *ngIf="applyInfo">
+    <div class="details form-grid">
+      <ion-grid>
+        <ion-row>
+          <ion-col col-12>
+            区域：{{applyInfo.caption.area}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            状态：{{getStatusName(applyInfo.status)}}
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="applyInfo.status==1">
+          <ion-col col-12>
+            <span>过期时间：{{dateFormat(applyInfo.deadLine, 'YYYY-MM-DD HH:mm')}}</span>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            班级代码：{{applyInfo.iclass.code}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            预约号码：{{applyInfo.reserveNo}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6>
+            学年：{{applyInfo.year}}
+          </ion-col>
+          <ion-col col-6>
+            学期：{{applyInfo.caption.term}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6>
+            专业：{{applyInfo.specialty.name}}
+          </ion-col>
+          <ion-col col-6>
+            课次：{{applyInfo.iclass.classTime}}
+          </ion-col>
+          <!-- <ion-col col-6>
+            程度：{{applyInfo.iclass.degree}}
+          </ion-col> -->
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            开课/结课日期：{{dateFormat(applyInfo.iclass.beginDate)}}至{{dateFormat(applyInfo.iclass.endDate)}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            总费用：{{applyInfo.iclass.totalFee}}
+          </ion-col>
+        </ion-row>
+        <!-- <ion-row>
+          <ion-col col-12>
+            学费明细：
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            报名限制：
+          </ion-col>
+        </ion-row> -->
+        <ion-row>
+          <ion-col col-12>
+            课表信息：<p [innerHTML]="applyInfo.iclass.schedule | safeHtml"></p>
+          </ion-col>
+        </ion-row>
+        <!-- <ion-row>
+          <ion-col col-12>
+            课程描述：
+          </ion-col>
+        </ion-row> -->
+        <!-- <ion-row class="multi-row">
+          <ion-col col-3>
+            班级描述：
+          </ion-col>
+          <ion-col col-9>
+            {{applyInfo.iclass.description}}
+          </ion-col>
+        </ion-row> -->
+      </ion-grid>
+    </div>
+    <div class="submit-button-container">
+      <button (click)="pay()" *ngIf="applyInfo.status == 1">
+        去支付
+      </button><br><br>
+      <button (click)="cancel()" *ngIf="applyInfo.status == 1 || applyInfo.status == 0">
+        撤销
+      </button>
+    </div>
+  </div>
+</ion-content>

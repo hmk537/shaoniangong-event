@@ -1,0 +1,42 @@
+<!--
+  Generated template for the MyClassListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>我的班级</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <div class="my-class-list">
+    <div class="class-item" (click)="goDetail(item)" *ngFor="let item of list">
+      <div class="title">
+        {{item.apply.iclass.name}}（费用：{{item.apply.iclass.totalFee}}）
+      </div>
+      <div class="details">
+        <ul>
+          <li>区域：{{item.apply.caption.area}}</li>
+          <li>预约号：{{item.apply.reserveNo}}</li>
+          <li>专业：{{item.apply.specialty.name}}</li>
+          <li>学年/学期：{{item.apply.year}}&nbsp;{{item.apply.caption.term}}</li>
+          <!-- <li>程度：{{item.apply.iclass.degree}}</li> -->
+          <!-- <li>年龄段：*字段待确认</li> -->
+          <!-- <li>课程日期：{{dateFormat(item.apply.iclass.beginDate)}} - {{dateFormat(item.apply.iclass.endDate)}}</li> -->
+          <li>上课时间/地点：<p [innerHTML]="item.apply.iclass.schedule | safeHtml"></p></li>
+          <li><span>状态：{{getStatusName(item.apply.status)}}</span></li>
+          <li *ngIf="item.apply.status==1"><span>过期时间：{{dateFormat(item.apply.deadLine, 'YYYY-MM-DD HH:mm')}}</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="正在加载更多...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

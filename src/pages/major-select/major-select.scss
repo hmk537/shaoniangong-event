@@ -1,0 +1,51 @@
+page-major-select {
+    .scroll-content {
+        overflow: auto;
+    }
+    .major-select {
+        .major-list {
+            .parent-major-item {
+                height: 50px;
+                font-size: 24px;
+                overflow: hidden;
+                transition: height ease-out .2s;
+                .parent-major-name {
+                    height: 50px;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 15px;
+                    border-bottom: 1px solid #ddd;
+                    color: #333;
+                    ion-icon {
+                        font-size: 24px;
+                        margin-right: 10px;
+                        transition: transform ease-out .2s;
+                    }
+                }
+                .sub-major-list {
+                    overflow: hidden;
+                    background: #fafafa;
+                    .sub-major-item {
+                        height: 40px;
+                        line-height: 40px;
+                        font-size: 20px;
+                        padding: 0 15px 0 60px;
+                        color: #555;
+                        border-bottom: 1px solid #eee;
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+                    }
+                }
+                &.expanded {
+                    .parent-major-name ion-icon {
+                        transform: rotate(90deg);
+                    }
+                }
+                &:last-child .parent-major-name {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+}

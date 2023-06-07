@@ -1,0 +1,183 @@
+// http://ionicframework.com/docs/theming/
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+/* ion-navbar.toolbar {
+    height: 132px;
+
+    .toolbar-background-ios {
+        background-color: #05a2e9;
+    }
+
+    .toolbar-title-ios {
+        font-size: 54px;
+        color: #fff;
+        font-weight: normal;
+    }
+
+    button {
+        color: #fff;
+        font-size: 40px;
+    }
+}
+
+.tabs-ios .tabbar {
+    height: 148px;
+    background-color: #05a2e9;
+
+    .tab-button {
+        color: #0124ba;
+
+        .tab-button-text {
+            font-size: 24px;
+        }
+
+        &[aria-selected=true] {
+            * {
+                color: #fff;
+            }
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .tab-button-icon {
+        height: 70px;
+        font-size: 70px;
+        color: #0124ba;
+        font-weight: bold;
+        font-size: 80px;
+        height: 80px;
+        width: 80px;
+    }
+}
+
+ion-header {
+    .toolbar {
+        padding: 0 60px;
+    }
+
+    button {
+        color: #fff;
+        font-size: 40px;
+    }
+}
+
+.back-button-icon-ios {
+    font-size: 9rem;
+}
+
+.fixed-content, .scroll-content {
+    margin-top: 132px;
+    margin-bottom: 148px;
+}
+
+.app-root {
+    width: 1080px;
+    height: 1920px;
+    transform-origin: left top;
+} */
+ion-navbar.toolbar {
+    .toolbar-background {
+        background-color: #05a2e9;
+    }
+
+    .toolbar-title {
+        color: #fff;
+    }
+
+    .toolbar-title-ios {
+        // font-size: 54px;
+        color: #fff;
+        font-weight: normal;
+    }
+
+    button {
+        color: #fff;
+        // font-size: 40px;
+    }
+}
+
+.tabs .tabbar {
+    // height: 148px;
+    // background-color: #05a2e9;
+    background-color: #fff;
+    border-top: 1px solid #efefef;
+
+    .tab-button {
+        color: #666;
+
+        .tab-button-text {
+            // font-size: 24px;
+        }
+
+        &[aria-selected=true] {
+            * {
+                color: #fff;
+            }
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+
+        &[aria-selected=true] {
+            .tab-button-text {
+                color: #05a2e9;
+            }
+            .tab-button-icon {
+                color: #05a2e9;
+            }
+        }
+    }
+
+    .tab-button-icon {
+        // height: 70px;
+        // font-size: 70px;
+        color: #666;
+        font-weight: bold;
+        // font-size: 80px;
+        // height: 80px;
+        // width: 80px;
+    }
+}
+
+ion-header {
+    .toolbar {
+        // padding: 0 60px;
+    }
+
+    button {
+        color: #fff;
+        // font-size: 40px;
+    }
+}
+
+.submit-button-container {
+    text-align: center;
+    // margin-top: 20px;
+    padding: 20px;
+    button {
+        width: 90%;
+        height: 40px;
+        background-color: #05a2e9;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 20px;
+        border-width: 0;
+    }
+}

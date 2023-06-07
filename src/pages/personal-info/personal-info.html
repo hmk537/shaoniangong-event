@@ -1,0 +1,119 @@
+<!--
+  Generated template for the PersonalInfoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>个人信息</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="personal-info">
+    <div class="form-grid">
+      <ion-grid>
+        <ion-row [ngClass]="{'disabled': idCardRequired}">
+          <ion-col col-3>学生姓名</ion-col>
+          <ion-col col-9>
+            {{formData.name}}
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>手机号码</ion-col>
+          <ion-col col-9>
+            <input type="number" [(ngModel)]="formData.mobile" placeholder="请输入手机号码">
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="officePhoneEnabled">
+          <ion-col col-3>手机号码二</ion-col>
+          <ion-col col-9>
+            <input type="number" [(ngModel)]="formData.officePhone" placeholder="请输入手机号码二">
+          </ion-col>
+        </ion-row>
+        <ion-row [ngClass]="{'disabled': idCardReadonly}">
+          <ion-col col-3>证&nbsp;&nbsp;件</ion-col>
+          <ion-col col-9>
+            <input type="text" [readonly]="idCardReadonly" [(ngModel)]="formData.cardNo" placeholder="请输入身份证号">
+          </ion-col>
+        </ion-row>
+        <ion-row [ngClass]="{'disabled': idCardRequired}">
+          <ion-col col-3>性&nbsp;&nbsp;别</ion-col>
+          <ion-col col-9>
+            <div class="radio-group">
+              <button *ngFor="let sex of sexes" (click)="setSex(sex.code)">
+                <ion-icon name="md-radio-button-off" *ngIf="sex.code != formData.sex"></ion-icon>
+                <ion-icon name="md-radio-button-on" *ngIf="sex.code == formData.sex"></ion-icon>
+                &nbsp;&nbsp;{{sex.name}}
+              </button>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row [ngClass]="{'disabled': idCardRequired}">
+          <ion-col col-3>出生日期</ion-col>
+          <ion-col col-9>
+            <button class="custom-date" (click)="showDatePicker()">
+              {{formData.birthday}}<ion-icon name="ios-arrow-down"></ion-icon>
+            </button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-3>年&nbsp;&nbsp;级</ion-col>
+          <ion-col col-9>
+            <div class="custom-select">
+              <div class="display">
+                {{currentGradeLabel}}<ion-icon name="ios-arrow-down"></ion-icon>
+              </div>
+              <ion-select [(ngModel)]="formData.grade" okText="确定" cancelText="取消">
+                <ion-option *ngFor="let grade of grades" value="{{grade.value}}">{{grade.label}}</ion-option>
+              </ion-select>
+            </div>
+          </ion-col>
+        </ion-row>
+       <!--  <group title v-if="isCar">
+          <x-input
+            v-model="carId1"
+            title="车牌号1："
+            name="username"
+            placeholder="请输入车牌号1"
+            :show-clear="false"
+          ></x-input>
+        </group>
+        <group title v-if="isCar">
+          <x-input
+            v-model="carId2"
+            title="车牌号2："
+            name="username"
+            placeholder="请输入车牌号2"
+            :show-clear="false"
+          ></x-input>
+        </group> -->
+        <ion-row>
+          <ion-col col-3>学校</ion-col>
+          <ion-col col-9>
+            <input type="text" [(ngModel)]="formData.school" placeholder="请输入学校名称" (focus)="showSchoolPicker()">
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="isCarNoEnable">
+          <ion-col col-3>车牌号1</ion-col>
+          <ion-col col-9>
+            <input type="text" [(ngModel)]="formData.carId1" placeholder="请输入车牌号1">
+          </ion-col>
+        </ion-row>
+        <ion-row  *ngIf="isCarNoEnable">
+          <ion-col col-3>车牌号2</ion-col>
+          <ion-col col-9>
+            <input type="text" [(ngModel)]="formData.carId2" placeholder="请输入车牌号1">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div class="submit-button-container">
+      <button (click)="submit()">
+        修改
+      </button>
+    </div>
+  </div>
+</ion-content>

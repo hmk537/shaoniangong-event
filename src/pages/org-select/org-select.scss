@@ -1,0 +1,40 @@
+page-org-select {
+    .org-select {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        height: 100%;
+        .title {
+            font-size: 22px;
+            color: #4c4c4c;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 15px;
+        }
+        .filters {
+            display: flex;
+            padding: 0 15px;
+            height: 40px;
+            .select-filter {
+                .display {
+                    color: #05a2e9;
+                    height: 100%;
+                }
+            }
+        }
+        .org-list {
+            flex: 1;
+            overflow: auto;
+            .item {
+                padding: 0 15px;
+                height: 40px;
+                line-height: 40px;
+                color: #808080; // font-size: 18px;
+                border-bottom: 1px solid #e5e5e5;
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+}

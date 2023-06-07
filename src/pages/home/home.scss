@@ -1,0 +1,39 @@
+page-home {
+    .scroll-content {
+        overflow: auto;
+    }
+    .banner {}
+
+    .menus {
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            font-size: 13px;
+            line-height: 30px;
+            align-items: center;
+            color: #333;
+
+            .icon {
+                background: #05a2e9;
+                border-radius: 50%;
+                width: 68px;
+                height: 68px;
+                text-align: center;
+                line-height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 40px;
+                    height: auto;
+                }
+            }
+        }
+    }
+}
