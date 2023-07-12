@@ -74,7 +74,7 @@
         <button (click)="pay('alipay')" *ngIf="alipayEnable && paymentInfo.orgId!='FEAB1A0CA40E4390E0430100007FAD58'">
           支付宝支付
         </button>
-        <button (click)="goPayCode()" *ngIf="alipayEnable && paymentInfo.orgId=='FEAB1A0CA40E4390E0430100007FAD58'">
+        <button (click)="goPayCode()" *ngIf="paymentInfo.orgId=='FEAB1A0CA40E4390E0430100007FAD58'">
           支付宝支付
         </button>
       </div>
