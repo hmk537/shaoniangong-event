@@ -24,6 +24,7 @@ import { MajorSelectPage } from '../pages/major-select/major-select'
 import { MyClassListPage } from '../pages/my-class-list/my-class-list'
 import { MyClassDetailPage } from '../pages/my-class-detail/my-class-detail'
 import { PayCodePage } from '../pages/pay-code/pay-code'
+import { PayCodePage2 } from '../pages/pay-code2/pay-code2'
 import { AboutPage } from '../pages/about/about'
 import { PaymentPage } from '../pages/payment/payment'
 import { SettingPage } from '../pages/setting/setting'
@@ -57,6 +58,7 @@ import { TermsAlertPage } from '../pages/terms-alert/terms-alert';
     MyClassListPage,
     MyClassDetailPage,
     PayCodePage,
+    PayCodePage2,
     AboutPage,
     PaymentPage,
     SettingPage,
@@ -95,6 +97,7 @@ import { TermsAlertPage } from '../pages/terms-alert/terms-alert';
     MyClassListPage,
     MyClassDetailPage,
     PayCodePage,
+    PayCodePage2,
     AboutPage,
     PaymentPage,
     SettingPage,

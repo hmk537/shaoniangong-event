@@ -14,6 +14,7 @@ import {
 import CONSTANTS from '../../app/constants'
 import utils from '../../common/utils'
 import { PayCodePage } from '../pay-code/pay-code'
+import { PayCodePage2 } from '../pay-code2/pay-code2'
 declare var cordova: any
 // declare let Wechat: any
 /**
@@ -127,6 +128,15 @@ export class PaymentPage {
   }
   goPayCode(){
     this.navCtrl.push(PayCodePage,{
+      reserveNo:this.paymentInfo.reserveNo,
+      userName:this.queryInfo.student.name,
+      userId:this.queryInfo.student.mobile,
+      payType:'57',
+      returnUrl:`http://bm.qsng.cn/eduback/api/public/fund/zfzx/payNotify/class/${this.queryInfo.pay.paySerial}`
+    })
+  }
+  goPayCode2(){
+    this.navCtrl.push(PayCodePage2,{
       reserveNo:this.paymentInfo.reserveNo,
       userName:this.queryInfo.student.name,
       userId:this.queryInfo.student.mobile,

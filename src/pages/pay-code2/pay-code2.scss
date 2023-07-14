@@ -1,0 +1,15 @@
+page-pay-code2 {
+  .pay-code{
+    background: #36B449;
+    .qrcode-box{
+      text-align: center;
+      canvas{
+        width: 200px;
+        height: 200px;
+        border-radius: 5px;
+        padding: 10px;
+        background: #fff;
+      }
+    }
+  }
+}
