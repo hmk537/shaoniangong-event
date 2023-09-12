@@ -59,14 +59,14 @@
             </button>
           </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row [ngClass]="{'disabled': isGradeEdit}">
           <ion-col col-3>年&nbsp;&nbsp;级</ion-col>
           <ion-col col-9>
             <div class="custom-select">
               <div class="display">
                 {{currentGradeLabel}}<ion-icon name="ios-arrow-down"></ion-icon>
               </div>
-              <ion-select [(ngModel)]="formData.grade" okText="确定" cancelText="取消">
+              <ion-select [disabled]="isGradeEdit" [(ngModel)]="formData.grade" okText="确定" cancelText="取消">
                 <ion-option *ngFor="let grade of grades" value="{{grade.value}}">{{grade.label}}</ion-option>
               </ion-select>
             </div>

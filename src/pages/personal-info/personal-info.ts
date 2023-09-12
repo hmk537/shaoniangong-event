@@ -46,6 +46,8 @@ export class PersonalInfoPage {
   idCardRequired = false
   // 身份证输入框是否只读
   idCardReadonly = false
+  // 年级是否允许修改
+  isGradeEdit = false
   // 身份证是否通过验证
   idCardPassed = false
   // 是否启用车牌号
@@ -59,6 +61,7 @@ export class PersonalInfoPage {
     const initData = JSON.parse(localStorage.initData)
     this.isSchoolRequired = initData['setting']['isSchoolRequired'] == 1
     this.idCardRequired = parseInt(JSON.parse(localStorage.settings)['idCardNeed']) === 1
+    this.isGradeEdit = parseInt(JSON.parse(localStorage.settings)['isGradeEdit']) === 0
     this.isCarNoEnable = typeof initData.setting.isCar !== 'undefined' && parseInt(initData.setting.isCar) === 1
     this.officePhoneEnabled = initData['setting']['isTwoPhone'] == 1
 
