@@ -1,6 +1,6 @@
 // const host = 'http://bm.qsng.cn/eduplatform/';
 // const host = 'http://192.168.1.102:8081/eduplatform/'
-const host = 'http://bm.qsng.cn/eduapp/'
+const host = 'https://www.qsnedu.com/eduapp/'
 // const host = 'api/';
 const APIs = {
     COMMON_DICTIONARY: 'api/public/sys/dict/list',

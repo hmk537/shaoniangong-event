@@ -132,7 +132,7 @@ export class PaymentPage {
       userName:this.queryInfo.student.name,
       userId:this.queryInfo.student.mobile,
       payType:'57',
-      returnUrl:`http://bm.qsng.cn/eduback/api/public/fund/zfzx/payNotify/class/${this.queryInfo.pay.paySerial}`
+      returnUrl:`https://www.qsnedu.com/eduback/api/public/fund/zfzx/payNotify/class/${this.queryInfo.pay.paySerial}`
     })
   }
   goPayCode2(){
@@ -141,7 +141,7 @@ export class PaymentPage {
       userName:this.queryInfo.student.name,
       userId:this.queryInfo.student.mobile,
       payType:'57',
-      returnUrl:`http://bm.qsng.cn/eduback/api/public/fund/zfzx/payNotify/class/${this.queryInfo.pay.paySerial}`
+      returnUrl:`https://www.qsnedu.com/eduback/api/public/fund/zfzx/payNotify/class/${this.queryInfo.pay.paySerial}`
     })
   }
   async getQuery(){
