@@ -1139,10 +1139,6 @@ cordova-plugin-datepicker@^0.9.3:
   resolved "https://registry.npmmirror.com/cordova-plugin-datepicker/-/cordova-plugin-datepicker-0.9.3.tgz#2558a9ce5998f6d6dc06cf92fd8bbb9d0901f16a"
   integrity sha512-wPyveZExU7VtVu75FxjUQJBYEKmr5HgFHBJG6wwpDobq/0tSxYfSceIacqHFessSCs5Zfc3ezdBrM1CmRvAEZw==
 
-cordova-plugin-device@^2.0.3:
-  version "2.1.0"
-  resolved "https://registry.npmmirror.com/cordova-plugin-device/-/cordova-plugin-device-2.1.0.tgz#ef2292c2f0a34d01b5aca6c39cf204e48a460fb2"
-  integrity sha512-FU0Lw1jZpuKOgG4v80LrfMAOIMCGfAVPumn7AwaX9S1iU/X3OPZUyoKUgP09q4bxL35IeNPkqNWVKYduAXZ1sg==
 
 cordova-plugin-inappbrowser@^4.1.0:
   version "4.1.0"
