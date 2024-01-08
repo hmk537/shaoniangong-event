@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { App, Platform, ToastController, Toast, Select, ModalController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { AppUpdate } from '@ionic-native/app-update';
+// import { AppUpdate } from '@ionic-native/app-update';
 
 import { HttpUtilProvider } from '../providers/http-util'
 import CONSTANTS from '../app/constants'
@@ -23,18 +23,18 @@ export class MyApp {
 
   counter: number = 0
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private httpUtil: HttpUtilProvider, private appUpdate: AppUpdate, private toastCtrl: ToastController, private appCtrl: App, modalCtrl: ModalController) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private httpUtil: HttpUtilProvider, private toastCtrl: ToastController, private appCtrl: App, modalCtrl: ModalController) {
     platform.ready().then(async () => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       // statusBar.styleDefault();
       // statusBar.overlaysWebView(true);
 
-      this.appUpdate.checkAppUpdate(CONSTANTS['CHECK_VERSION']).then(() => {
-        console.log('Update available')
-      }).catch(e => {
-        console.error(e)
-      })
+      // this.appUpdate.checkAppUpdate(CONSTANTS['CHECK_VERSION']).then(() => {
+      //   console.log('Update available')
+      // }).catch(e => {
+      //   console.error(e)
+      // })
 
       statusBar.backgroundColorByHexString('#05a2e9');
       splashScreen.hide();

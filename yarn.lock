@@ -99,10 +99,6 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@ionic-native/app-update@^4.20.0":
-  version "4.20.0"
-  resolved "https://registry.npmmirror.com/@ionic-native/app-update/-/app-update-4.20.0.tgz#a82f3902d26d5975f10f803f837f9ac1852db460"
-  integrity sha512-Menxc73WMvaCwfSDAJ71lYJlbJWJbLEUmcSo2D9hF/eIO3wv12GXDYjQinp6DRzLN7MtewqbyfHaU6RQwzyRgA==
 
 "@ionic-native/core@~4.17.0":
   version "4.17.0"
@@ -1125,9 +1121,6 @@ cordova-plugin-alipay-v2@^2.0.0:
   resolved "https://registry.npmmirror.com/cordova-plugin-alipay-v2/-/cordova-plugin-alipay-v2-2.0.0.tgz#72ae695f0d5404c61ca880a9f04bb8c5b6bf1d1f"
   integrity sha512-pKPkzmdkCq3Ep58/bUbzlOehY4H4ZcDBytVSVchHuY4FHSMKrO5T91oFtUi6+fEDLsuu4St1V/4drrlzokz5fA==
 
-"cordova-plugin-app-update@git+https://github.com/WenWu92/cordova-plugin-app-update.git":
-  version "2.0.2"
-  resolved "git+https://github.com/WenWu92/cordova-plugin-app-update.git#c325eaa2c1eb543c6bfd55d483a829f67f1968a5"
 
 cordova-plugin-appversion@^1.0.0:
   version "1.0.0"

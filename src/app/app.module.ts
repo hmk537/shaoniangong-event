@@ -32,7 +32,6 @@ import { SigninListPage } from '../pages/signin-list/signin-list'
 import { ContractPage } from '../pages/contract/contract'
 import { SchoolPickerPage } from '../pages/school-picker/school-picker'
 
-import { AppUpdate } from '@ionic-native/app-update';
 import { StatusBar } from '@ionic-native/status-bar'
 import { SplashScreen } from '@ionic-native/splash-screen'
 import { DatePicker } from '@ionic-native/date-picker'
@@ -114,7 +113,6 @@ import { TermsAlertPage } from '../pages/terms-alert/terms-alert';
     HttpUtilProvider,
     DatePicker,
     InAppBrowser,
-    AppUpdate
   ]
 })
 export class AppModule { }
