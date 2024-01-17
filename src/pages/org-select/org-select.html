@@ -62,6 +62,7 @@
         <div *ngIf="(org.nature == 1 || org.nature == 2) || !selected.hideMore" class="item" (click)="selectOrg(org)">{{org.name}}</div>
       </ng-container>
       <div class="item" style="text-align: center;" (click)="showMore()" *ngIf="selected.hideMore">显示更多社会机构</div>
+      <div class="footer" style="text-align: center;">服务咨询热线：<span>0571-85772015</span></div>
     </div>
   </div>
 </ion-content>
