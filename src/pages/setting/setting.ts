@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, LoadingController, App } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController, App, ModalController } from 'ionic-angular';
 import { LoginPage } from '../login/login'
 
 import { OrgSelectPage } from '../org-select/org-select'
+import { TermsAlertPage } from '../../pages/terms-alert/terms-alert';
 /**
  * Generated class for the SettingPage page.
  *
@@ -16,7 +17,7 @@ import { OrgSelectPage } from '../org-select/org-select'
 })
 export class SettingPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public loadingCtrl: LoadingController, public appCtrl: App) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public loadingCtrl: LoadingController, public appCtrl: App, private modalCtrl: ModalController) {
   }
 
   callback = null
@@ -35,6 +36,11 @@ export class SettingPage {
       from: 'setting'
     })
   }
+  goAlert(){
+    let termsAlert = this.modalCtrl.create(TermsAlertPage)
+    termsAlert.present()
+  }
+
   async cancel() {
     this.alertCtrl.create({
       title: '提示',
