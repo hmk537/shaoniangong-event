@@ -20,6 +20,8 @@ declare var cordova: any
 })
 export class PayCodePage2 {
   text: string = ''
+  qrImg:string = ''
+  orgId:string = localStorage.orgId
   @ViewChild('qrCanvas') qrCanvasRef: ElementRef
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController, public httpUtil: HttpUtilProvider, public alertCtrl: AlertController, public iab: InAppBrowser) {
     const initData = JSON.parse(localStorage.initData)
@@ -34,17 +36,21 @@ export class PayCodePage2 {
     const res = await this.httpUtil.post(CONSTANTS['COMMON_PAY'], this.navParams.data)
     console.log(res['pat']);
     // 生成二维码
-    const canvas = this.qrCanvasRef.nativeElement
-    QRCode.toCanvas(canvas, res['pat'], {
-      margin: 0,
-      width: 200,
-      color: {
-        dark: '000000ff',
-        light: '#ffffffff'
-      }
-    }, function (error) {
-      if (error) console.error(error)
-      console.log('success!');
-    })
+    if(localStorage.orgId == 'FEAB1A0CA40E4390E0430100007FAD58'){
+      const canvas = this.qrCanvasRef.nativeElement
+      QRCode.toCanvas(canvas, res['pat'], {
+        margin: 0,
+        width: 200,
+        color: {
+          dark: '000000ff',
+          light: '#ffffffff'
+        }
+      }, function (error) {
+        if (error) console.error(error)
+        console.log('success!');
+      })
+    }else{
+      this.qrImg = 'http://bm.qsng.cn/zfzx' + res['pat']
+    }
   }
 }

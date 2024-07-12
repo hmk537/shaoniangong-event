@@ -95,6 +95,13 @@ export class PaymentPage {
       } catch (e) {
         loading.dismiss()
       }*/
+        this.navCtrl.push(PayCodePage2,{
+          reserveNo:this.paymentInfo.reserveNo,
+          userName:this.queryInfo.student.name,
+          userId:this.queryInfo.student.mobile,
+          payType:'12',
+          returnUrl:`https://www.qsnedu.com/eduback/api/public/fund/zfzx/payNotify/class/${this.queryInfo.pay.paySerial}`
+        })
     } else if (channel === 'alipay') {
       /* try {
         const res = await this.httpUtil.post(CONSTANTS['ALIPAY_APP_PAY'], {
@@ -119,11 +126,18 @@ export class PaymentPage {
         loading.dismiss()
       } */
 
-      this.paymentTriggered = true
-      const redirectUrl = `https://ds.alipay.com/?scheme=${encodeURIComponent(`alipays://platformapi/startapp?appId=2018020902165761&page=pages/payment/alipay&query=${encodeURIComponent(`reserveNo=${this.paymentInfo['reserveNo']}&orgId=${this.paymentInfo['orgId']}`)}`)}`
-      console.log(redirectUrl)
+      // this.paymentTriggered = true
+      // const redirectUrl = `https://ds.alipay.com/?scheme=${encodeURIComponent(`alipays://platformapi/startapp?appId=2018020902165761&page=pages/payment/alipay&query=${encodeURIComponent(`reserveNo=${this.paymentInfo['reserveNo']}&orgId=${this.paymentInfo['orgId']}`)}`)}`
+      // console.log(redirectUrl)
       // window.open(redirectUrl, '_system', 'location=yes')
-      this.iab.create(redirectUrl, '_system', 'location=yes')
+      // this.iab.create(redirectUrl, '_system', 'location=yes')
+      this.navCtrl.push(PayCodePage,{
+        reserveNo:this.paymentInfo.reserveNo,
+        userName:this.queryInfo.student.name,
+        userId:this.queryInfo.student.mobile,
+        payType:'22',
+        returnUrl:`https://www.qsnedu.com/eduback/api/public/fund/zfzx/payNotify/class/${this.queryInfo.pay.paySerial}`
+      })
     }
   }
   goPayCode(){
@@ -146,7 +160,8 @@ export class PaymentPage {
   }
   async getQuery(){
     const res = await this.httpUtil.post(CONSTANTS['RESERVE_DETAIL'], {
-      reserveNo: this.paymentInfo['reserveNo']
+      reserveNo: this.paymentInfo['reserveNo'],
+      userId:JSON.parse(localStorage.userInfo).humanId
     })
     this.queryInfo = res
   }
@@ -157,7 +172,8 @@ export class PaymentPage {
     })
     loading.present()
     const res = await this.httpUtil.post(CONSTANTS['RESERVE_DETAIL'], {
-      reserveNo: this.paymentInfo['reserveNo']
+      reserveNo: this.paymentInfo['reserveNo'],
+      userId:JSON.parse(localStorage.userInfo).humanId
     })
     loading.dismiss()
     if (res['apply']['status'] == '3') {

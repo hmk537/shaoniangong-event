@@ -68,9 +68,9 @@
     </div>
     <div class="submit-button-container" *ngIf="paymentInfo && paymentInfo.enrollType != 1 && paymentInfo.enrollType != 2">
       <div *ngIf="!paymentTriggered;else payment_triggered">
-        <!-- <button (click)="pay('wechat')" *ngIf="wechatpayEnable">
+        <button (click)="pay('wechat')" *ngIf="wechatpayEnable && paymentInfo.orgId!='FEAB1A0CA40E4390E0430100007FAD58'">
           微信支付
-        </button><br><br> -->
+        </button><br><br>
         <button (click)="pay('alipay')" *ngIf="alipayEnable && paymentInfo.orgId!='FEAB1A0CA40E4390E0430100007FAD58'">
           支付宝支付
         </button>

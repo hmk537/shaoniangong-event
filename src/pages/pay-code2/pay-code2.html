@@ -17,7 +17,8 @@
   <div class="pay-code">
     <img src="assets/imgs/payBg2.png" alt="">
     <div class="qrcode-box">
-      <canvas #qrCanvas></canvas>
+      <canvas #qrCanvas *ngIf="orgId == 'FEAB1A0CA40E4390E0430100007FAD58'"></canvas>
+      <img [src]="qrImg" *ngIf="orgId != 'FEAB1A0CA40E4390E0430100007FAD58'">
     </div>
     <img src="assets/imgs/payBg1.png" alt="">
   </div>

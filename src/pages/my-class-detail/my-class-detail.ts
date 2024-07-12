@@ -40,7 +40,8 @@ export class MyClassDetailPage {
     loading.present()
     try {
       const res = await this.httpUtil.post(CONSTANTS['RESERVE_DETAIL'], {
-        reserveNo: this.navParams.data.apply['reserveNo']
+        reserveNo: this.navParams.data.apply['reserveNo'],
+        userId:JSON.parse(localStorage.userInfo).humanId
       })
       console.log(res)
       // 获取最新状态
@@ -87,6 +88,13 @@ export class MyClassDetailPage {
     this.alertCtrl.create({
       title: '提示',
       message: '是否确认撤销？',
+      inputs: [
+        {
+          name: 'phoneNum',
+          placeholder: '请输入手机号后四位',
+          type: 'number'
+        }
+      ],
       buttons: [
         {
           text: '否',
@@ -96,36 +104,54 @@ export class MyClassDetailPage {
         },
         {
           text: '是',
-          handler: () => {
-            doCancel.call(this)
+          handler: (formData) => {
+            if (formData.phoneNum){
+              doCancel.call(this,formData.phoneNum)
+            }
           }
         }
       ]
     }).present();
 
-    async function doCancel() {
+    async function doCancel(num) {
       const loading = this.loadingCtrl.create({
         content: '正在撤销...'
       })
       loading.present()
-      const res = await this.httpUtil.post(CONSTANTS['CANCEL_APPLY'], {
-        applyId: this.applyInfo['id'],
-        userId: JSON.parse(localStorage.userInfo)['humanId']
-      })
-      if (res['successNum'] > 0) {
-        loading.dismiss()
+      try {
+        const res = await this.httpUtil.post(CONSTANTS['CANCEL_APPLY'], {
+          applyId: this.applyInfo['id'],
+          userId: JSON.parse(localStorage.userInfo)['humanId'],
+          mobileDigits:num
+        })
+        
+        if (res['successNum'] > 0) {
+          loading.dismiss()
+          this.alertCtrl.create({
+            title: '提示',
+            subTitle: '已撤销',
+            buttons: [{
+              text: '确认', handler: () => {
+                this.navCtrl.pop()
+              }
+            }]
+          }).present()
+        } else {
+          loading.dismiss()
+        }
+      } catch(e){
+        const msg = typeof e === 'string' ? e : '出错啦！'
         this.alertCtrl.create({
           title: '提示',
-          subTitle: '已撤销',
+          subTitle: msg,
           buttons: [{
             text: '确认', handler: () => {
-              this.navCtrl.pop()
+              loading.dismiss()
             }
           }]
         }).present()
-      } else {
-        loading.dismiss()
       }
+      
     }
   }
 
