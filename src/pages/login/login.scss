@@ -55,6 +55,18 @@ page-login {
                     }
                 }
             }
+            .contract {
+                padding: 5px 20px;
+                display: flex;
+                align-items: center;
+                ion-icon {
+                        color: #333;
+                }
+                span {
+                        color: #05a2e9;
+                        text-decoration: underline;
+                }
+            }
         }
     }
 }

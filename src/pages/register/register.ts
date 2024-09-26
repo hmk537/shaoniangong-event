@@ -6,6 +6,8 @@ import { DatePicker } from '@ionic-native/date-picker'
 import moment from 'moment'
 import utils from '../../common/utils'
 import { SchoolPickerPage } from '../school-picker/school-picker'
+import { TermsAlertPage } from '../../pages/terms-alert/terms-alert';
+import { Regulate } from '../../pages/regulate/regulate';
 
 /**
  * Generated class for the RegisterPage page.
@@ -44,7 +46,7 @@ export class RegisterPage {
     sex: 0,
     birthday: '2000-01-01'
   }
-
+  agreementChecked = false
   // 学校是否必填
   isSchoolRequired = JSON.parse(localStorage.initData)['setting']['isSchoolRequired'] == 1
   // 身份证是否必填
@@ -90,12 +92,25 @@ export class RegisterPage {
     }
   }
 
+  goAlert(){
+    let termsAlert = this.modalCtrl.create(Regulate)
+    termsAlert.present()
+  }
+
+  openContract(){
+    let termsAlert = this.modalCtrl.create(TermsAlertPage)
+    termsAlert.present()
+  }
+
   async submit() {
     // let passed = true
 
     const phoneNumRegex = /^1[34578]\d{9}$/
     let msg = ''
-
+    if(!this.agreementChecked){
+      this.alert('请先阅读并同意《隐私政策制度、用户信息保护制度》!')
+      return
+    }
     if (this.formData.name.trim() === '') {
       this.alert('用户名不能为空!')
       return

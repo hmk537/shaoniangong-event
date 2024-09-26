@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, LoadingController,ModalController } from 'ionic-angular';
 
 import { TabsPage } from '../tabs/tabs'
 import { RegisterPage } from '../register/register'
 import { HttpUtilProvider } from '../../providers/http-util'
 import CONSTANTS from '../../app/constants'
 import { OrgSelectPage } from '../org-select/org-select'
+import { TermsAlertPage } from '../../pages/terms-alert/terms-alert';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,7 +21,7 @@ import { OrgSelectPage } from '../org-select/org-select'
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public httpUtil: HttpUtilProvider, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpUtil: HttpUtilProvider, public alertCtrl: AlertController, public loadingCtrl: LoadingController,private modalCtrl: ModalController) {
   }
 
   formData = {
@@ -35,6 +36,7 @@ export class LoginPage {
   nameLabel = ''
   from = ''
   ready = false
+  agreementChecked = false
 
   orgName = JSON.parse(localStorage.org)['name']
 
@@ -81,6 +83,11 @@ export class LoginPage {
     })
   }
 
+  openContract(){
+    let termsAlert = this.modalCtrl.create(TermsAlertPage)
+    termsAlert.present()
+  }
+
   goRegister() {
     this.navCtrl.push(RegisterPage)
   }
@@ -110,7 +117,22 @@ export class LoginPage {
     })
   }
 
+  alert(msg) {
+    this.alertCtrl.create({
+      title: '提示',
+      subTitle: msg,
+      buttons: [{
+        text: '确认', handler: () => {
+        }
+      }]
+    }).present()
+  }
+
   async doLogin() {
+    if(!this.agreementChecked){
+      this.alert('请先阅读并同意《隐私政策制度、用户信息保护制度》!')
+      return
+    }
     const loading = this.loadingCtrl.create({
       content: '登录中...'
     })

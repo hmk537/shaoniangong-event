@@ -32,6 +32,9 @@
             <input type="number" [(ngModel)]="formData.officePhone" placeholder="请输入手机号码">
           </ion-col>
         </ion-row>
+        <div class="prompt">
+          根据<span (click)="goAlert()">《青少年宫、青少年活动中心服务管理规定》</span>要求，注册时需提供身份证号码才能正常进行服务
+        </div>
         <ion-row>
           <ion-col col-3>证&nbsp;&nbsp;件</ion-col>
           <ion-col col-9>
@@ -78,6 +81,11 @@
           </ion-col>
         </ion-row>
       </ion-grid>
+    </div>
+    <div class="contract">
+      <ion-icon name="checkmark-circle-outline" *ngIf="!agreementChecked" (click)="agreementChecked = true"></ion-icon>
+      <ion-icon name="md-checkmark-circle" *ngIf="agreementChecked" (click)="agreementChecked = false"></ion-icon>
+      &nbsp;同意并接受<span (click)="openContract()">《隐私政策制度、用户信息保护制度》</span>
     </div>
     <div class="submit-button-container">
       <button (click)="submit()">

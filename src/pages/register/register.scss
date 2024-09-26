@@ -9,4 +9,23 @@ page-register {
     		padding: 0!important;
     	}
     }
+		.prompt{
+			color: gray;
+			padding: 10px 10px 0 10px;
+			span{
+				color: #3EA0E7;
+			}
+		}
+		.contract {
+			padding: 5px 20px;
+			display: flex;
+			align-items: center;
+			ion-icon {
+					color: #333;
+			}
+			span {
+					color: #05a2e9;
+					text-decoration: underline;
+			}
+	}
 }

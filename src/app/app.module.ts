@@ -38,6 +38,7 @@ import { DatePicker } from '@ionic-native/date-picker'
 import { InAppBrowser } from '@ionic-native/in-app-browser'
 import { ECertPage } from '../pages/e-cert/e-cert';
 import { TermsAlertPage } from '../pages/terms-alert/terms-alert';
+import { Regulate } from '../pages/regulate/regulate';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { TermsAlertPage } from '../pages/terms-alert/terms-alert';
     SchoolPickerPage,
     ECertPage,
     TermsAlertPage,
+    Regulate,
 
     SafeHtmlPipe
   ],
@@ -104,7 +106,8 @@ import { TermsAlertPage } from '../pages/terms-alert/terms-alert';
     ContractPage,
     SchoolPickerPage,
     ECertPage,
-    TermsAlertPage
+    TermsAlertPage,
+    Regulate
   ],
   providers: [
     StatusBar,

@@ -20,6 +20,11 @@
       <div class="row">
         <input type="password" class="phone" placeholder="请输入手机号" [(ngModel)]="formData.password">
       </div>
+      <div class="contract">
+        <ion-icon name="checkmark-circle-outline" *ngIf="!agreementChecked" (click)="agreementChecked = true"></ion-icon>
+        <ion-icon name="md-checkmark-circle" *ngIf="agreementChecked" (click)="agreementChecked = false"></ion-icon>
+        &nbsp;同意并接受<span (click)="openContract()">《隐私政策制度、用户信息保护制度》</span>
+      </div>
       <div class="row">
         <button class="main" (click)="doLogin()">登录</button>
       </div>
