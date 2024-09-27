@@ -141,7 +141,7 @@
     fs-extra "^4.0.2"
     glob "^7.1.2"
     json-loader "^0.5.7"
-    node-sass "^6.0.1"
+    node-sass "^8.0.0"
     os-name "^2.0.1"
     postcss "^6.0.21"
     proxy-middleware "^0.15.0"
@@ -3199,9 +3199,9 @@ node-libs-browser@^2.0.0:
     util "^0.11.0"
     vm-browserify "^1.0.1"
 
-node-sass@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.npmmirror.com/node-sass/-/node-sass-6.0.1.tgz#cad1ccd0ce63e35c7181f545d8b986f3a9a887fe"
+node-sass@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.npmmirror.com/node-sass/-/node-sass-8.0.0.tgz#cad1ccd0ce63e35c7181f545d8b986f3a9a887fe"
   integrity sha512-f+Rbqt92Ful9gX0cGtdYwjTrWAaGURgaK5rZCWOgCNyGWusFYHhbqCCBoFBeat+HKETOU02AyTxNhJV0YZf2jQ==
   dependencies:
     async-foreach "^0.1.3"
