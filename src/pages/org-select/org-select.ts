@@ -71,6 +71,11 @@ export class OrgSelectPage {
 
     localStorage.orgId = org.id
     localStorage.org = JSON.stringify(org)
+    if(org.host){
+      localStorage.host = org.host
+    }
+    console.log(org.host);
+    
 
     const loading = this.loadingCtrl.create({
       content: '正在设置...'

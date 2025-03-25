@@ -50,7 +50,7 @@ export class PayCodePage {
         console.log('success!');
       })
     }else{
-      this.qrImg = 'http://bm.qsng.cn/zfzx' + res['pat']
+      this.qrImg = `http://${localStorage.getItem('host')?localStorage.getItem('host'):'bm.qsng.cn'}/zfzx` + res['pat']
     }
   }
 }

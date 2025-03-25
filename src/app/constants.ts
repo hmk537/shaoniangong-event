@@ -1,7 +1,16 @@
 // const host = 'http://bm.qsng.cn/eduplatform/';
 // const host = 'http://192.168.1.102:8081/eduplatform/'
-const host = 'https://www.qsnedu.com/eduapp/'
+const host = `https://${localStorage.getItem('host')?localStorage.getItem('host'):'www.qsnedu.com'}/eduapp/`
 // const host = 'api/';
+interface Constants {
+    [key: string]: string | { code: number; name: string }[] | string;
+    HOST: string;
+    version: string;
+    CHECK_VERSION: string;
+    ORG_ID: string;
+    LOCATE_AMAP: string;
+    STATUS_MAP: { code: number; name: string }[];
+}
 const APIs = {
     COMMON_DICTIONARY: 'api/public/sys/dict/list',
     ORG_DICTIONARY: 'api/public/sys/orgDict/list',
@@ -47,9 +56,19 @@ const APIs = {
     // 获取订单信息
     COMMON_PAY:'api/public/fund/zfzx/commonPay',
 };
-const CONSTANTS = {}
+const CONSTANTS: Constants = {} as Constants;
+// 使用 getter 动态获取 host
+Object.defineProperty(CONSTANTS, 'HOST', {
+    get: function () {
+        return `https://${localStorage.getItem('host') || 'www.qsnedu.com'}/eduapp/`;
+    }
+});
 for (let key in APIs) {
-    CONSTANTS[key] = `${host}${APIs[key]}`
+    Object.defineProperty(CONSTANTS, key, {
+        get: function () {
+            return `${CONSTANTS.HOST}${APIs[key]}`;
+        }
+    });
 }
 
 // 状态map
@@ -76,7 +95,6 @@ CONSTANTS['STATUS_MAP'] = [{
     name: '已撤销'
 }]
 
-CONSTANTS['HOST'] = host
 CONSTANTS['version'] = '0.1'
 CONSTANTS['CHECK_VERSION'] = 'https://tangong-app-update.oss-cn-hangzhou.aliyuncs.com/szsng/update.xml' // 检查app版本更新
 
